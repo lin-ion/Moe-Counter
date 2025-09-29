@@ -1,6 +1,12 @@
-version: '3'
 services:
   moe-counter:
     build: .
     ports:
-      - "3000:3000"
+      - 3000:3000
+    env_file: .env
+  mongo:
+    image: mongo:8
+    volumes: 
+      - ./count.db:/data/db
+    ports:
+      - 27017:27017
