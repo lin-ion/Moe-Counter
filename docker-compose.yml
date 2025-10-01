@@ -1,12 +1,17 @@
 services:
   moe-counter:
-    build: .
-    ports:
-      - 3000:3000
+    container_name: moe-counter
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
     env_file: .env
-  mongo:
+    expose:
+      - 3000
+  moe-counter-mongo:
     image: mongo:8
+    container_name: moe-counter-mongo
     volumes: 
       - ./count.db:/data/db
-    ports:
-      - 27017:27017
+    expose:
+      - 27017
