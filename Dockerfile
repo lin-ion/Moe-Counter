@@ -2,8 +2,13 @@ FROM node:22-alpine
 
 RUN corepack enable && corepack prepare pnpm@10.11.0 --activate
 
-COPY . /app
+# COPY . /app
 WORKDIR /app
+
+COPY assets ./assets
+COPY utils ./utils
+COPY views ./views
+COPY index.js ./
 
 COPY package.json ./
 COPY pnpm-lock.yaml ./
