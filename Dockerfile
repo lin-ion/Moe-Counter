@@ -6,6 +6,7 @@ RUN corepack enable && corepack prepare pnpm@10.11.0 --activate
 WORKDIR /app
 
 COPY assets ./assets
+COPY db ./db
 COPY utils ./utils
 COPY views ./views
 COPY index.js ./
