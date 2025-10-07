@@ -11,6 +11,7 @@ services:
   moe-counter-mongo:
     image: mongo:8
     container_name: moe-counter-mongo
+    restart: unless-stopped
     volumes: 
       - ./count.db:/data/db
     expose:
