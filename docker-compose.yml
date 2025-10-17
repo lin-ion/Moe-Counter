@@ -1,7 +1,7 @@
 services:
   moe-counter:
     container_name: moe-counter
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
@@ -12,7 +12,9 @@ services:
     image: mongo:8
     container_name: moe-counter-mongo
     restart: unless-stopped
-    volumes: 
+    volumes:
       - ./count.db:/data/db
+      - ./count.db/configdb:/data/configdb
     expose:
       - 27017
+    user: "1000:1001"
